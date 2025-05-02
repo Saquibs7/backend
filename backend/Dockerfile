@@ -1,3 +1,4 @@
+# filepath: /backend/backend/Dockerfile
 # Use official Python image as base
 FROM python:3.11
 
@@ -12,4 +13,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # Run your app
-CMD ["python", "app.py"]
+CMD ["python", "app.py"]  # replace with your main file

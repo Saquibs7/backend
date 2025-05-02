@@ -82,7 +82,9 @@ def handle_search():
         with torch.no_grad():
             query_embedding = model.encode_image(image_input).cpu().numpy()
 
-        # Normalize query embedding
+        # Normalize query embedding - fix the shape issue
+        query_embedding = query_embedding.astype(np.float32)
+        query_embedding = query_embedding.reshape(1, -1)  # Ensure it's 2D
         faiss.normalize_L2(query_embedding)
 
         # Perform similarity search
